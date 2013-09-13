@@ -8,9 +8,3 @@ object P03 {
     case (_, Nil) => throw new NoSuchElementException
   }
 }
-
-assert(P03.nth(2, List(1, 1, 2, 3, 5, 8)) == 2)
-println("OK 1")
-
-assert(P03.nthRecursive(2, List(1, 1, 2, 3, 5, 8)) == 2)
-println("OK 2")
