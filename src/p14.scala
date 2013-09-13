@@ -1,6 +1,8 @@
 
-def duplicate(symbols: List[Symbol]) = symbols flatMap { a => List.fill(2)(a) }
+object P14 {
 
-assert(duplicate(List('a, 'b, 'c, 'c, 'd)) == List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd))
+  def duplicate(symbols: List[Symbol]) = symbols flatMap { a => List.fill(2)(a) }
+}
 
+assert(P14.duplicate(List('a, 'b, 'c, 'c, 'd)) == List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd))
 println("OK")

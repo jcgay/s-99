@@ -1,18 +1,19 @@
 
-def compress(symbols: List[Symbol]) = symbols.foldLeft(List[Symbol]()) (
-  (result, element) => if (result.isEmpty || result.last != element) result :+ element else result
-)
+object P08 {
 
-assert(compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) == List('a, 'b, 'c, 'a, 'd, 'e))
+  def compress(symbols: List[Symbol]) = symbols.foldLeft(List[Symbol]()) (
+    (result, element) => if (result.isEmpty || result.last != element) result :+ element else result
+  )
 
-println("OK 1")
-
-def compressRecursive(symbols: List[Symbol]): List[Symbol] = symbols match {
-  case Nil => Nil
-  case head :: Nil => List(head)
-  case head :: tail => if (head == tail.head) compressRecursive(tail) else head :: compressRecursive(tail)
+  def compressRecursive(symbols: List[Symbol]): List[Symbol] = symbols match {
+    case Nil => Nil
+    case head :: Nil => List(head)
+    case head :: tail => if (head == tail.head) compressRecursive(tail) else head :: compressRecursive(tail)
+  }
 }
 
-assert(compressRecursive(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) == List('a, 'b, 'c, 'a, 'd, 'e))
+assert(P08.compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) == List('a, 'b, 'c, 'a, 'd, 'e))
+println("OK 1")
 
+assert(P08.compressRecursive(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) == List('a, 'b, 'c, 'a, 'd, 'e))
 println("OK 2")
