@@ -11,6 +11,3 @@ object P16 {
     dropRecursive(1, symbols)
   }
 }
-
-assert(P16.drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) == List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k))
-println("OK")

@@ -9,12 +9,3 @@ object P04 {
     case head :: tail => 1 + lengthRecursive(tail)
   }
 }
-
-assert(P04.length(List(1, 1, 2, 3, 5, 8)) == 6)
-println("OK 1")
-
-assert(P04.lengthFold(List(1, 1, 2, 3, 5, 8)) == 6)
-println("OK 2")
-
-assert(P04.lengthRecursive(List(1, 1, 2, 3, 5, 8)) == 6)
-println("OK 3")
