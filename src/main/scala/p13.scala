@@ -1,10 +1,10 @@
 
 object P13 {
 
-  def encodeDirect(symbols: List[Symbol]): List[(Int, Symbol)] = {
-    if (symbols.isEmpty) Nil
+  def encodeDirect[A](elements: List[A]): List[(Int, A)] = {
+    if (elements.isEmpty) Nil
     else {
-      val result: (List[Symbol], List[Symbol]) = symbols span { _ == symbols.head }
+      val result: (List[A], List[A]) = elements span { _ == elements.head }
       (result._1.length, result._1.head) :: encodeDirect(result._2)
     }
   }

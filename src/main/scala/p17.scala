@@ -1,13 +1,13 @@
 
 object P17 {
 
-  def split(i: Int, symbols: List[Symbol]) = symbols.splitAt(i)
+  def split[A](index: Int, elements: List[A]) = elements.splitAt(index)
 
-  def splitRecursive(i: Int, symbols: List[Symbol]): (List[Symbol], List[Symbol]) = (i, symbols) match {
+  def splitRecursive[A](index: Int, elements: List[A]): (List[A], List[A]) = (index, elements) match {
     case (_, Nil) => (Nil, Nil)
     case (0, values) => (List(), values)
     case (_, head :: tail) => {
-      val (before, after) = splitRecursive(i - 1, tail)
+      val (before, after) = splitRecursive(index - 1, tail)
       (head :: before, after)
     }
   }

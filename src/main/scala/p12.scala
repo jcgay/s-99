@@ -1,5 +1,5 @@
 
 object P12 {
 
-  def decode(encoded: List[(Int, Symbol)]) = encoded flatMap { a => List.fill(a._1)(a._2) }
+  def decode[A](encoded: List[(Int, A)]) = encoded flatMap { a => List.fill(a._1)(a._2) }
 }
