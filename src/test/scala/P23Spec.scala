@@ -1,7 +1,12 @@
+import org.scalatest.FlatSpec
 
-class P23Spec extends UnitSpec {
+class P23Spec extends FlatSpec {
 
   it should "extract a given number of randomly selected elements from a list" in {
-    P23.randomSelect(3, List('a, 'b, 'c, 'd, 'f, 'g, 'h)) should (contain ('a') or contain ('b') or contain('d') or contain('f') or contain('g) or contain('h) and have size (3))
+    val source: List[Symbol] = List('a, 'b, 'c, 'd, 'f, 'g, 'h)
+    val result: List[Symbol] = P23.randomSelect(3, source)
+
+    assert(result.length === 3)
+    result.foreach(e => assert(source.contains(e)))
   }
 }
