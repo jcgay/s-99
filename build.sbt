@@ -4,7 +4,7 @@ name := "s-99"
 
 version := "1.0"
 
-scalacOptions ++= Seq("-unchecked", "-deprecation")
+scalacOptions ++= Seq("-unchecked", "-deprecation", "-feature")
 
 libraryDependencies ++= Seq(
 	"junit" % "junit" % "4.11" % "test",
