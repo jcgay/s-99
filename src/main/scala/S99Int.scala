@@ -7,6 +7,11 @@ class S99Int(val start: Int) {
 object S99Int {
   import scala.language.implicitConversions
   implicit def int2S99Int(i: Int): S99Int = new S99Int(i)
+
+  def gcd(a: Int, b: Int): Int = (a, b) match {
+    case (a, 0) => a
+    case (a, b) => gcd(b, a % b)
+  }
 }
 
 }
