@@ -8,6 +8,16 @@ class S99Int(val start: Int) {
   def isCoprime(value: Int) = S99Int.gcd(start, value) == 1
 
   def totient: Int = ((1 to start) filter { start.isCoprime(_) }).size
+
+  def primeFactors: List[Int] = {
+    def allPrimes = (2 to start) filter { _.isPrime }
+    def primeFactorsRec(n: Int, primes: IndexedSeq[Int]): List[Int] = {
+      if (primes.head > Math.sqrt(start)) List()
+      else if (n % primes.head == 0) primes.head :: primeFactorsRec(n / primes.head, allPrimes)
+      else primeFactorsRec(n, primes.tail)
+    }
+    primeFactorsRec(start, allPrimes)
+  }
 }
 
 object S99Int {
