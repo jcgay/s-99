@@ -1,9 +1,13 @@
 package arithmetic {
 
+import arithmetic.S99Int._
+
 class S99Int(val start: Int) {
   def isPrime: Boolean = start > 1 && ((2 to Math.sqrt(start).toInt) forall { start % _ != 0 })
 
   def isCoprime(value: Int) = S99Int.gcd(start, value) == 1
+
+  def totient: Int = ((1 to start) filter { start.isCoprime(_) }).size
 }
 
 object S99Int {
