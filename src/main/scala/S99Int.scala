@@ -1,3 +1,5 @@
+import P10.encode
+
 package arithmetic {
 
 import arithmetic.S99Int._
@@ -18,6 +20,8 @@ class S99Int(val start: Int) {
     }
     primeFactorsRec(start, allPrimes)
   }
+
+  def primeFactorMultiplicity: List[(Int, Int)] = encode(primeFactors) map { _.swap }
 }
 
 object S99Int {
