@@ -14,7 +14,8 @@ class S99Int(val start: Int) {
   def primeFactors: List[Int] = {
     def allPrimes = (2 to start) filter { _.isPrime }
     def primeFactorsRec(n: Int, primes: IndexedSeq[Int]): List[Int] = {
-      if (primes.head > Math.sqrt(start)) List()
+      if (primes.isEmpty) List()
+      else if (primes.head > Math.sqrt(start)) List()
       else if (n % primes.head == 0) primes.head :: primeFactorsRec(n / primes.head, allPrimes)
       else primeFactorsRec(n, primes.tail)
     }
@@ -22,6 +23,12 @@ class S99Int(val start: Int) {
   }
 
   def primeFactorMultiplicity: List[(Int, Int)] = encode(primeFactors) map { _.swap }
+
+  def totientImproved: Int = primeFactorMultiplicity.foldLeft(1) {
+    (result, element) => element match {
+      case (p, m) => result * (p - 1) * Math.pow(p, m - 1).toInt
+    }
+  }
 }
 
 object S99Int {
