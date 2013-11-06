@@ -39,6 +39,8 @@ object S99Int {
     case (a, 0) => a
     case (a, b) => gcd(b, a % b)
   }
+
+  def listPrimesInRange(range: Range): List[Int] = (for (element <- range if element.isPrime) yield element).toList
 }
 
 }
