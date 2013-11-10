@@ -29,6 +29,13 @@ class S99Int(val start: Int) {
       case (p, m) => result * (p - 1) * Math.pow(p, m - 1).toInt
     }
   }
+
+  def goldbach: (Int, Int) = {
+    listPrimesInRange(2 to start) find { x => (start - x).isPrime } match {
+      case None => throw new IllegalArgumentException
+      case Some(x) => (x, start - x)
+    }
+  }
 }
 
 object S99Int {
