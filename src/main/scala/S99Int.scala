@@ -48,6 +48,11 @@ object S99Int {
   }
 
   def listPrimesInRange(range: Range): List[Int] = (for (element <- range if element.isPrime) yield element).toList
+
+  def printGoldbachList(range: Range) = printGoldbachListLimited(range, 0)
+
+  def printGoldbachListLimited(range: Range, limit: Int) =
+    range filter { n => n > 2 && n % 2 == 0 } map { _.goldbach } filter { _._1 > limit } foreach { println _ }
 }
 
 }
